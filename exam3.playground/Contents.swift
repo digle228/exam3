@@ -36,12 +36,16 @@ func sortArray(array1:[Int], array2:[Int]) -> [Int] {
         _ = allArray[i]
         for var j = 0; j<arrayLen; j++ {
             if allArray[i] < allArray[j] {
-            swap(&allArray[i], &allArray[j])
+                let swapArray = allArray[i]
+                allArray[i] = allArray[j]
+                allArray[j] = swapArray
+                
+                //swap(&allArray[i], &allArray[j])
             }
         }
     }
     var filter = Dictionary<Int,Int>()
-    for var index = 0; index < arrayLen  ;++index {
+    for var index = 0; index < arrayLen  ;index++ {
         let value = allArray[index]
         if (filter[value] != nil) {
             allArray.removeAtIndex(index--)
